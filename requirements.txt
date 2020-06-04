@@ -1,0 +1,14 @@
+cement==3.0.0
+jinja2
+pyyaml
+colorlog
+nose
+scrapy
+tldextract
+validators
+selenium
+axe-selenium-python
+
+# Mock or block requests in tests
+requests-mock
+pytest_socket
