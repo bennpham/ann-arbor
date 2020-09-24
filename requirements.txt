@@ -1,3 +1,10 @@
+#
+# To install Python dependencies:
+#
+# $ pip install -r requirements.txt
+#
+# See README for more information on setup.
+#
 cement==3.0.0
 jinja2
 pyyaml
@@ -8,6 +15,9 @@ tldextract
 validators
 selenium
 axe-selenium-python
+
+# For ChromeDriver issue: https://github.com/formulafolios/ann-arbor/issues/2
+webdriver-manager
 
 # Mock or block requests in tests
 requests-mock
