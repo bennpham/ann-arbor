@@ -20,6 +20,7 @@ from selenium.webdriver.remote.remote_connection import LOGGER as webdriver_logg
 from selenium import webdriver
 from selenium.webdriver import chrome
 from axe_selenium_python import Axe
+from webdriver_manager.chrome import ChromeDriverManager
 
 from config.app import AUDITS_DIR
 from models.violation import Violation
@@ -293,16 +294,24 @@ class AxePageAudit(AxeAudit):
         # https://stackoverflow.com/q/11029717/#answer-11029841
         webdriver_logger.setLevel(logging.WARNING)
         logging.getLogger("urllib3").setLevel(logging.WARNING)
+
         # Run headless
         chrome_options = chrome.options.Options()
         chrome_options.add_argument("--headless")
-        # Driver
-        driver = webdriver.Chrome(chrome_options=chrome_options)
+
+        # Use webdriver_manager to deal with version issues:
+        # https://github.com/formulafolios/ann-arbor/issues/2
+        driver_manager = ChromeDriverManager().install()
+
+        # Set up Axe with Chrome driver
+        driver = webdriver.Chrome(driver_manager, chrome_options=chrome_options)
         driver.get(self.url)
         axe = Axe(driver)
+
         # Inject axe-core javascript into page and run checks.
         axe.inject()
         results = axe.run()
+
         # Write results to file
         path = pathjoin(self.report_dir, self.report_file_name("json"))
         axe.write_results(results, path)
