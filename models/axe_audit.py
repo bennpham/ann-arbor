@@ -299,12 +299,8 @@ class AxePageAudit(AxeAudit):
         chrome_options = chrome.options.Options()
         chrome_options.add_argument("--headless")
 
-        # Use webdriver_manager to deal with version issues:
-        # https://github.com/formulafolios/ann-arbor/issues/2
-        driver_manager = ChromeDriverManager().install()
-
         # Set up Axe with Chrome driver
-        driver = webdriver.Chrome(driver_manager, chrome_options=chrome_options)
+        driver = webdriver.Chrome(options=chrome_options)
         driver.get(self.url)
         axe = Axe(driver)
 
