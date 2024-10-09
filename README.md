@@ -93,6 +93,10 @@ To run a single test:
 
     pytest tests/test_models/test_site.py
 
+To run linters:
+
+    flake8
+
 
 ## Acknowledgements
 Special thanks go to [unleashalicia](https://github.com/unleashalicia) who, as Site Accessibility Engineer at FormulaFolios, wrote most of the code for Ann Arbor when it was an internal project used to analyze the accessibility of web applications and then prepared it for publication as our first open source project.

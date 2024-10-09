@@ -11,6 +11,7 @@ pyyaml
 colorlog
 pytest
 pytest-cov
+flake8
 scrapy
 tldextract
 validators
