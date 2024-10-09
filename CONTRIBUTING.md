@@ -5,7 +5,7 @@ We welcome contributions to Ann Arbor!  Ann Arbor is a collaborative project and
 Be sure you are familiar with Ann Arbor's licensing and code of conduct before you submit to the project.  Important information can also be found in the README.
 
 ## Reporting a Bug
-* If you found a bug, please check our [issues](https://github.com/formulafolios/ann-arbor/issues).  If the bug is already there, you can add your feedback or open a pull request to fix the bug yourself (see the pull request section below).
+* If you found a bug, please check our [issues](https://github.com/bennpham/ann-arbor/issues).  If the bug is already there, you can add your feedback or open a pull request to fix the bug yourself (see the pull request section below).
 * If you do not find an issue for this bug, open a new issue.  Include as much information as you can, including a title, a clear description of the problem, how to recreate the issue, the operating system used when the bug was encountered, the expected behavior, and the actual behavior of the application.
 
 ## Open a Pull Request

@@ -21,7 +21,7 @@ This setup guide uses Pyenv as the python version manager and uses Chromedriver 
 
 - Clone repository:
 
-      git clone git@github.com:formulafolios/ann-arbor.git
+      git clone git@github.com:bennpham/ann-arbor.git
       cd ann-arbor
 
 - Set local Python version:
