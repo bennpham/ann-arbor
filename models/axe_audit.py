@@ -20,7 +20,6 @@ from selenium.webdriver.remote.remote_connection import LOGGER as webdriver_logg
 from selenium import webdriver
 from selenium.webdriver import chrome
 from axe_selenium_python import Axe
-from webdriver_manager.chrome import ChromeDriverManager
 
 from config.app import AUDITS_DIR
 from models.violation import Violation

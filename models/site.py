@@ -62,7 +62,8 @@ class Site(object):
     #
     @property
     def fqdn(self):
-        """fqdn = fully qualified domain name (or full absolute domain name). Example: www.example.com.
+        """fqdn = fully qualified domain name (or full absolute domain name).
+        Example: www.example.com.
         For additional info: https://en.wikipedia.org/wiki/Fully_qualified_domain_name
         """
         # tldextract doesn't recognize localhost so we treat it as a special case.
