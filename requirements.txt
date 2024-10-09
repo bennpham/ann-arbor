@@ -5,11 +5,12 @@
 #
 # See README for more information on setup.
 #
-cement==3.0.0
+cement
 jinja2
 pyyaml
 colorlog
-nose
+pytest
+pytest-cov
 scrapy
 tldextract
 validators

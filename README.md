@@ -6,8 +6,7 @@ Ann Arbor will also show which templates of your site have the most errors, allo
 
 
 ## Environment
-- Python = 3.6.0
-- The site crawler, Scrapy, currently will not support Python versions above 3.6, so sitemap generation and full site audits rely on using this version of Python.
+- Python = 3.12.5
 
 
 ## Setup
@@ -16,9 +15,9 @@ This setup guide uses Pyenv as the python version manager and uses Chromedriver 
 - [Install Pyenv](https://github.com/pyenv/pyenv#installation)
 - [Install Chromedriver](https://chromedriver.chromium.org/getting-started)
 
-- Use pyenv to install Python 3.6.x
+- Use pyenv to install Python 3.12.x
 
-      pyenv install 3.6.x
+      pyenv install 3.12.x
 
 - Clone repository:
 
@@ -27,7 +26,7 @@ This setup guide uses Pyenv as the python version manager and uses Chromedriver 
 
 - Set local Python version:
 
-      pyenv local 3.6.0
+      pyenv local 3.12.0
 
 - Install dependencies:
 
@@ -88,11 +87,11 @@ Reports can further be broken down.  Because color contrast can often be a large
 ## Testing
 To run tests:
 
-    nosetests
+    pytest
 
 To run a single test:
 
-    nosetests tests/test_models/test_site.py
+    pytest tests/test_models/test_site.py
 
 
 ## Acknowledgements

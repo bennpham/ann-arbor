@@ -8,7 +8,7 @@ Relationships
 Fields
 - created_at
 """
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 import os
 from os.path import join as pathjoin
@@ -104,7 +104,7 @@ class AxeSiteAudit(AxeAudit):
     def __init__(self, site):
         self.site = site
         self.type = site.audit_type
-        self.created_at = datetime.utcnow()
+        self.created_at = datetime.now(timezone.utc)
 
     #
     # Properties
@@ -163,7 +163,7 @@ class AxeSiteAudit(AxeAudit):
             return self.summarize_by_pages()
 
     def summarize_by_templates(self):
-        summary_f = """
+        summary_f = r"""
 aXe Site Audit Summary
 ----------------------
 domain:         {}
@@ -198,7 +198,7 @@ Violations CSV: {}"""
                                 self.violations_path)
 
     def summarize_by_pages(self):
-        summary_f = """
+        summary_f = r"""
 aXe Site Audit Summary
 ----------------------
 domain:         {}
@@ -248,7 +248,7 @@ class AxePageAudit(AxeAudit):
         self.page = page
         self.type = audit_type
         self.violations = []
-        self.started_at = datetime.utcnow()
+        self.started_at = datetime.now(timezone.utc)
         self.ended_at = None
         os.makedirs(self.report_dir, exist_ok=True)
 
@@ -266,7 +266,7 @@ class AxePageAudit(AxeAudit):
     @property
     def runtime(self):
         if not self.ended_at:
-            self.ended_at = datetime.utcnow()
+            self.ended_at = datetime.now(timezone.utc)
         return self.ended_at - self.started_at
 
     #
@@ -275,7 +275,7 @@ class AxePageAudit(AxeAudit):
     def now(self):
         json_path = self.generate_report()
         self.violations = self.parse_report(json_path)
-        self.ended_at = datetime.utcnow()
+        self.ended_at = datetime.now(timezone.utc)
         return self
 
     def report_file_name(self, file_type):
@@ -299,12 +299,8 @@ class AxePageAudit(AxeAudit):
         chrome_options = chrome.options.Options()
         chrome_options.add_argument("--headless")
 
-        # Use webdriver_manager to deal with version issues:
-        # https://github.com/formulafolios/ann-arbor/issues/2
-        driver_manager = ChromeDriverManager().install()
-
         # Set up Axe with Chrome driver
-        driver = webdriver.Chrome(driver_manager, chrome_options=chrome_options)
+        driver = webdriver.Chrome(options=chrome_options)
         driver.get(self.url)
         axe = Axe(driver)
 
@@ -346,7 +342,7 @@ class AxePageAudit(AxeAudit):
         return pathjoin(AUDITS_DIR, site_name, page_name)
 
     def summarize(self):
-        summary_f = """
+        summary_f = r"""
 aXe Page Audit Summary
 ----------------------
 url:          {}

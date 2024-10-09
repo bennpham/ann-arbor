@@ -7,7 +7,7 @@ Relationships
 Fields
 - url
 """
-from datetime import datetime
+from datetime import datetime, timezone
 import os
 from os.path import join as pathjoin
 from urllib.parse import urljoin, urlsplit
@@ -35,7 +35,7 @@ class Site(object):
         self.pages = []
         self.violations = []
         self.last_scanned_at = None
-        self.started_at = datetime.utcnow()
+        self.started_at = datetime.now(timezone.utc)
         self.ended_at = None
 
         self.tld_extract = tldextract.extract(domain_or_url)
@@ -114,7 +114,7 @@ class Site(object):
     @property
     def runtime(self):
         if not self.ended_at:
-            self.ended_at = datetime.utcnow()
+            self.ended_at = datetime.now(timezone.utc)
         return self.ended_at - self.started_at
 
     #
