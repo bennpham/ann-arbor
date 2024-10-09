@@ -17,7 +17,7 @@ If you would like to submit code, style fixes, wording fixes, or changes to docu
 * Fork and clone the repository
 * Create a new branch off of develop for your changes
 * Make changes.  Include tests if warranted
-* Run nosetests and use a linter (we use [Flake8](http://flake8.pycqa.org/en/latest/)).  Fix any issues
+* Run pytest and use a linter (we use [Flake8](http://flake8.pycqa.org/en/latest/)).  Fix any issues
 * Pull develop back into your branch and fix any merge conflicts
 * Push your changes
 * Open a pull request that will merge your branch into develop

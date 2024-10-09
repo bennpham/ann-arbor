@@ -87,11 +87,11 @@ Reports can further be broken down.  Because color contrast can often be a large
 ## Testing
 To run tests:
 
-    nosetests
+    pytest
 
 To run a single test:
 
-    nosetests tests/test_models/test_site.py
+    pytest tests/test_models/test_site.py
 
 
 ## Acknowledgements

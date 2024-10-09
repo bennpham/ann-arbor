@@ -9,7 +9,8 @@ cement
 jinja2
 pyyaml
 colorlog
-nose
+pytest
+pytest-cov
 scrapy
 tldextract
 validators
